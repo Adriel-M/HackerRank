@@ -91,10 +91,7 @@ int main() {
     char query_name[MAX_NAME_SIZE + 1];
     query_name[MAX_NAME_SIZE] = '\0';
 
-    while (scanf("%" STRINGIFY(MAX_NAME_SIZE) "s", query_name) != EOF) {
-        if (query_name == "") {
-            break;
-        }
+    while (scanf("%" STRINGIFY(MAX_NAME_SIZE) "s", query_name) == 1) {
         char *number = query(hash_table, query_name);
         if (number == NULL) {
             printf("Not found\n");
