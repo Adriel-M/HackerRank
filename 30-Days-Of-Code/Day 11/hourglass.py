@@ -11,15 +11,15 @@ def get_sum(arry, x, y):
     return val
 
 # with recursion just for fun
-def get_values(arry, x, y):
+def get_max(arry, x, y):
     if x == 3 and y == 3:
-        return [get_sum(arry, x, y)]
+        return get_sum(arry, x, y)
     else:
-        sums = [get_sum(arry, x, y)]
+        curr = get_sum(arry, x, y)
         if x == 3:
-            sums += get_values(arry, 0, y + 1)
+            next = get_max(arry, 0, y + 1)
         else:
-            sums += get_values(arry, x + 1, y)
-        return sums
+            next = get_max(arry, x + 1, y)
+        return(max(curr, next))
 
-print(max(get_values(arr, 0, 0)))
+print(get_max(arr, 0, 0))
